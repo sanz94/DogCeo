@@ -1,0 +1,66 @@
+/*.MuiTypography-h2 {*/
+/*font-family: 'Concert One', cursive !important;*/
+/*font-weight: bold;*/
+/*color: black;*/
+/*}*/
+.html, body {
+    background-color: #485460;
+}
+
+.title {
+    border-bottom: 1px black solid;
+    /*box-shadow: 2px 2px #888888;*/
+}
+
+/*nav {*/
+/*margin-top: 25px;*/
+/*background-color: white;*/
+/*padding: 1em;*/
+/*display: inline-flex;*/
+/*flex-flow: column;*/
+/*width: 100%;*/
+/*justify-content: space-evenly;*/
+/*!*border-right: 1px black solid;*!*/
+/*!*box-shadow: 2px 2px #888888;*!*/
+/*}*/
+
+/*a {*/
+/*padding: 5px;*/
+/*font-family: 'Cinzel', serif !important;*/
+/*font-weight: bold;*/
+/*text-decoration: None;*/
+/*color: black;*/
+/*border-radius: 5px;*/
+/*}*/
+
+/*a:hover {*/
+/*color: red;*/
+/*}*/
+
+.pictures {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    align-self: flex-start;
+    justify-content: space-evenly;
+}
+
+.breeds {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: nowrap;
+    align-self: left;
+    justify-content: flex-start;
+}
+
+.pictures img {
+    width: 200px;
+    padding: 10px;
+}
+
+.pictures img:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.05);
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
