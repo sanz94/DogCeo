@@ -20,6 +20,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import IconButton from "@material-ui/core/es/IconButton/IconButton";
 import Tooltip from "@material-ui/core/es/Tooltip/Tooltip";
 import Button from "@material-ui/core/es/Button/Button";
+import {Route, Switch} from "react-router-dom";
 
 
 export default function SideBarDrawer() {
@@ -127,42 +128,47 @@ export default function SideBarDrawer() {
                     </Toolbar>
 
                 </AppBar>
-                <nav className={classes.drawer} aria-label="mailbox folders">
-                    <Hidden smUp implementation="css">
-                        <Drawer
-                            container={container}
-                            variant="temporary"
-                            anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                            open={mobileOpen}
-                            onClose={handleDrawerToggle}
-                            classes={{
-                                paper: classes.drawerPaper,
-                            }}
-                            ModalProps={{
-                                keepMounted: true, // Better open performance on mobile.
-                            }}
-                        >
-                            {drawer}
-                        </Drawer>
-                    </Hidden>
-                    <Hidden xsDown implementation="css">
-                        <Drawer
-                            classes={{
-                                paper: classes.drawerPaper,
-                            }}
-                            variant="permanent"
-                            open
-                        >
-                            {drawer}
-                        </Drawer>
-                    </Hidden>
-                </nav>
-                <main style={{background: '#485460'}} className={classes.content}>
-                    <div className={classes.toolbar}/>
-                    {
-                        componentMap[currentComponent]
-                    }
-                </main>
+                <BrowserRouter>
+                    <nav className={classes.drawer} aria-label="mailbox folders">
+                        <Hidden smUp implementation="css">
+                            <Drawer
+                                container={container}
+                                variant="temporary"
+                                anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                                open={mobileOpen}
+                                onClose={handleDrawerToggle}
+                                classes={{
+                                    paper: classes.drawerPaper,
+                                }}
+                                ModalProps={{
+                                    keepMounted: true, // Better open performance on mobile.
+                                }}
+                            >
+                                {drawer}
+                            </Drawer>
+                        </Hidden>
+                        <Hidden xsDown implementation="css">
+                            <Drawer
+                                classes={{
+                                    paper: classes.drawerPaper,
+                                }}
+                                variant="permanent"
+                                open
+                            >
+                                {drawer}
+                            </Drawer>
+                        </Hidden>
+                    </nav>
+                    <main style={{background: '#485460'}} className={classes.content}>
+                        <div className={classes.toolbar}/>
+                        <Switch>
+                            <Route exact path='/' component={RandomDogs}/>
+                            <Route path='/pictures-by-breed' component={PicturesBreed}/>
+                            <Route path='/pictures-by-sub-breed' component={PicturesSubBreed}/>
+                            <Route path='/list-all-breeds' component={ListBreeds}/>
+                        </Switch>
+                    </main>
+                </BrowserRouter>
             </div>
         );
     }
